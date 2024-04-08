@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div style="height: 3rem; visibility: hidden"></div>
+    <main>
+      <div id="image-position">
+        <img id="puzzle" src="" alt="" />
+        <div id="drop-zone" ondrop="dropHandler(event);" ondragenter="event.stopPropagation();event.preventDefault();" ondragover="event.stopPropagation();event.preventDefault();">
+          spusti sliku ovde ili je izaberi:
+          <input type="file" name="image" id="image" accept="image/*" onchange="uploadHandler(event);" />
+        </div>
+      </div>
+    </main>
+    <div id="controls" style="visibility: hidden">
+      <div>
+        <label>broj komadića:</label>
+        <input type="range" id="n-range" min="2" max="200" step="2" oninput="this.nextElementSibling.value = this.value;" />
+        <input type="number" id="n-input" min="2" max="200" step="2" size="5" oninput="this.previousElementSibling.value = this.value;" />
+      </div>
+      <div>
+        <button id="cancel" onclick="cancel();">poništi</button>
+        <button id="confirm" onclick="confirm();">potvrdi</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
